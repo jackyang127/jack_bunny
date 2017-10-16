@@ -80,7 +80,7 @@ class Commands(object):
 
 @app.route('/')
 def index():
-	return 'Defualt index here'
+	return render_template('home.html')
 
 @app.route('/q/<string:query>')
 def route(query):
@@ -98,12 +98,10 @@ def route(query):
 	try:
 		command = getattr(Commands, search_command)
 		if search_command == 'help':
-			print(command(None))
 			return render_template('help.html', command_list = command(None))
 		url = command(option_args)
 		return redirect(url)
 	except Exception as e:
-		print(e)
 		# fallback option is to google search
 		return redirect(Commands.g(query))
 

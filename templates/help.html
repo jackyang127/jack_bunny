@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<title>jack_bunny help page</title>
+		<style type="text/css">
+        	.container {
+        		padding-top: 50px;
+            }
+    	</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<p> Here are a list of commands currently availabe on jack_bunny </p>
+			<ul>
+				{% for n in command_list %}
+				<li>{{n}}</li>
+				{% endfor %}
+			</ul>
+			<p> For any suggestions, create an issue on <a href="https://github.com/jackyang127/jack_bunny">jack_bunny</a>! </p>	
+		</div>
+	</body>
+</html>

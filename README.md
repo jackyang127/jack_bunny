@@ -56,7 +56,7 @@ server {
         rewrite ^ http://[insert server name].com/ permanent;
 }
 
-# Handle requests to exploreflask.com on port 80
+# Handle requests to [insert server name].com on port 80
 server {
         listen 80;
         server_name [insert server name].com;

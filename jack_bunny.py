@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import request, Flask, render_template, redirect
 import wikipedia
 
 app = Flask(__name__)
@@ -82,11 +82,11 @@ class Commands(object):
 def index():
 	return render_template('home.html')
 
-@app.route('/q/<path:query>')
-def route(query):
+@app.route('/q/')
+def route():
 	#process the query
 	try:
-		query = str(query)
+		query = str(request.args.get('query', ''))
 		tokenized_query = query.split(' ', 1)
 		search_command = tokenized_query[0].lower()
 		option_args = None

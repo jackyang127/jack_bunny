@@ -25,6 +25,14 @@ class Commands(object):
 		else:
 			return 'https://mail.google.com/mail/u/0/#inbox'
 
+	def tiny(arg=None):
+		"""'tiny [insert query]' Uses tinyurl to generate the shortened url"""
+		print(arg)
+		if arg:
+			return 'http://tinyurl.com/api-create.php?url={0}'.format(arg)
+		else:
+			return 'http://tinyurl.com'
+
 	def w(arg=None):
 		"""'w [insert query]' searches wikipedia, defaults on english wikipedia page"""
 		try:

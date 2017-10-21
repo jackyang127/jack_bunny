@@ -4,7 +4,7 @@ pretty old and had some old dependencies so I thought it'd be easier to just wri
 most likely has security holes that I'll run into later. Just wanted to get something off the ground and I'll add in more features time
 permitting.
 
-Visit [link](http://ec2-52-38-53-188.us-west-2.compute.amazonaws.com) to setup using this version that I'm hosting.
+Visit [link](http://bunny.jackjyang.com) to setup using this version that I'm hosting.
 
 ### Commands
 List of currently supported commands

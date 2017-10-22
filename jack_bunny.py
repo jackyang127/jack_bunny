@@ -10,7 +10,7 @@ class Commands(object):
 			return 'http://www.facebook.com/s.php?q={0}&init=q'.format(arg)
 		else:
 			return 'http://www.facebook.com'
-	
+
 	def g(arg=None):
 		"""'g [insert query]' searching google"""
 		if arg:
@@ -49,7 +49,7 @@ class Commands(object):
 			else:
 				return 'https://en.wikipedia.org/wiki/Main_Page'
 		except:
-			return 'https://en.wikipedia.org/wiki/Main_Page'	
+			return 'https://en.wikipedia.org/wiki/Main_Page'
 
 	def cpp(arg=None):
 		"""'cpp [insert query]' searches for syntactical cpp terms on cppreference.com"""
@@ -77,6 +77,13 @@ class Commands(object):
 			return 'http://www.youtube.com/results?search_query={0}&search_type=&aq=-1&oq='.format(arg)
 		else:
 			return 'http://www.youtube.com'
+
+        def r(arg=None):
+                """'r [insert query]' make a reddit.com search. If not query is passed in, defaults to the reddit homepage"""
+                if arg:
+                        return 'https://www.reddit.com/search?q={0}'.format(arg)
+                else:
+                        return 'https://www.reddit.com'
 
 	def help(arg=None):
 		"""'help' returns a list of usable commands """
@@ -117,4 +124,4 @@ def route():
 		return redirect(Commands.g(query))
 
 if __name__ == '__main__':
-	app.run() 
+	app.run()

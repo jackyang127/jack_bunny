@@ -32,6 +32,6 @@ six==1.10.0
 ssh-import-id==5.5
 ufw==0.35
 unattended-upgrades==0.1
-urllib3==1.22
+urllib3==1.24.2
 Werkzeug==0.12.2
 wikipedia==1.4.0

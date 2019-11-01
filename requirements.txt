@@ -27,7 +27,7 @@ python-apt==1.1.0b1
 python-debian==0.1.27
 python-systemd==231
 PyYAML==3.11
-requests==2.18.4
+requests==2.20.0
 six==1.10.0
 ssh-import-id==5.5
 ufw==0.35

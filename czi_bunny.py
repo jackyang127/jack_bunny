@@ -58,18 +58,33 @@ class Commands(object):
 		else:
 			return 'http://en.cppreference.com/w/'
 
-	def p(arg=None):
-		"""'p [insert class number]' make a piazza search, kinda personalized just for jack lol"""
-		# should update to use piazza api for more generalized case
-		mapping = {
-			'189': 'j2ji31rkkl2og',
-			'168': 'j628emf1ted4r2',
-			'101': 'hyq0br1u3kx7dg'
-		}
-		if arg in mapping.keys():
-			return 'https://piazza.com/class/{0}'.format(mapping[arg])
+	def wi(arg=None):
+		"""'wi [insert query]' makes an advanced search in the CZI internal wiki. If no query is passed in, defaults to https://wiki.czi.team/"""
+		if arg:
+			return 'https://wiki.czi.team/dosearchsite.action?cql=siteSearch+~+%22{0}%22'.format(arg)
 		else:
-			return 'https://piazza.com'
+			return 'https://wiki.czi.team/'
+
+	def rt(arg=None):
+		"""'rt [insert query]' makes a search for a rollout in admin/rollout/feature. If no query is passed in, defaults to manage/rollouts"""
+		if arg:
+			return 'https://www.summitlearning.org/admin/rollout/feature/{0}'.format(arg)
+		else:
+			return 'https://www.summitlearning.org/manage/rollouts'
+
+	def gh(arg=None):
+		"""'gh [insert query]' makes a search for a file name under https://github.com/FB-PLP/traject/. If no query is passed in, defaults to traject github page"""
+		if arg:
+			return 'https://github.com/FB-PLP/traject/search?q={0}&unscoped_q={0}'.format(arg)
+		else:
+			return 'https://github.com/FB-PLP/traject/'
+
+	def rails(arg=None):
+		"""'rails [insert query]' makes a search for a rails concept in the api docs. If no query is passed in, defaults to rails homepage"""
+		if arg:
+			return 'https://apidock.com/rails/search?query={0}&commit={0}'.format(arg)
+		else:
+			return 'https://guides.rubyonrails.org/'
 
 	def yt(arg=None):
 		"""'yt [insert query]' make a youtube search. If not query is passed in, defaults to the youtube homepage"""
@@ -78,12 +93,12 @@ class Commands(object):
 		else:
 			return 'http://www.youtube.com'
 
-        def d(arg=None):
-                """'d [insert query]' make a google definition search. If not query is passed in, defaults to dictionary.com"""
-                if arg:
-                        return 'https://www.google.com/search?q=define%3A+{0}'.format(arg)
-                else:
-                        return 'http://www.dictionary.com/'
+	def d(arg=None):
+		"""'d [insert query]' make a google definition search. If not query is passed in, defaults to dictionary.com"""
+		if arg:
+			return 'https://www.google.com/search?q=define%3A+{0}'.format(arg)
+		else:
+			return 'http://www.dictionary.com/'
 
 	def help(arg=None):
 		"""'help' returns a list of usable commands """
@@ -95,11 +110,6 @@ class Commands(object):
 
 @app.route('/')
 def index():
-	return render_template('home.html')
-
-@app.route('/q/')
-def route():
-	#process the query
 	try:
 		query = str(request.args.get('query', ''))
 		tokenized_query = query.split(' ', 1)
